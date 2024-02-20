@@ -1,2 +1,2 @@
 #!/bin/bash
-./run_python_code.sh
+export PYCODE='print(f"Best School: {88+10}")'
