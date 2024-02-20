@@ -1,2 +1,2 @@
 #!/bin/bash
-code $PYCODE.py
+./run_python_code.sh
