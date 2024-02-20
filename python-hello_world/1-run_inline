@@ -1,3 +1,2 @@
 #!/bin/bash
-#a Shell script that runs Python code.
 python $PYCODE.py
