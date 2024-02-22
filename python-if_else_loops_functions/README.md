@@ -93,7 +93,7 @@ GitHub repository: alu-higher_level_programming
 Directory: python-if_else_loops_functions
 File: 0-positive_or_negative.py
   
-0/15 pts
+15/15 pts
 1. The last digit
 mandatory
 This program will assign a random signed number to the variable number each time it is executed. Complete the source code in order to print the last digit of the number stored in the variable number.
@@ -138,7 +138,7 @@ GitHub repository: alu-higher_level_programming
 Directory: python-if_else_loops_functions
 File: 1-last_digit.py
   
-0/15 pts
+15/15 pts
 2. I sometimes suffer from insomnia. And when I can't fall asleep, I play what I call the alphabet game
 mandatory
 Write a program that prints the ASCII alphabet, in lowercase, not followed by a new line.
@@ -155,7 +155,7 @@ GitHub repository: alu-higher_level_programming
 Directory: python-if_else_loops_functions
 File: 2-print_alphabet.py
   
-0/6 pts
+6/6 pts
 3. When I was having that alphabet soup, I never thought that it would pay off
 mandatory
 Write a program that prints the ASCII alphabet, in lowercase, not followed by a new line.
@@ -173,7 +173,7 @@ GitHub repository: alu-higher_level_programming
 Directory: python-if_else_loops_functions
 File: 3-print_alphabt.py
   
-0/6 pts
+1/6 pts
 4. Hexadecimal printing
 mandatory
 Write a program that prints all numbers from 0 to 98 in decimal and in hexadecimal (as in the following example)
@@ -213,7 +213,7 @@ GitHub repository: alu-higher_level_programming
 Directory: python-if_else_loops_functions
 File: 4-print_hexa.py
   
-0/6 pts
+6/6 pts
 5. 00...99
 mandatory
 Write a program that prints numbers from 0 to 99.
@@ -234,7 +234,7 @@ GitHub repository: alu-higher_level_programming
 Directory: python-if_else_loops_functions
 File: 5-print_comb2.py
   
-0/6 pts
+6/6 pts
 6. Inventing is a combination of brains and materials. The more brains you use, the less material you need
 mandatory
 Write a program that prints all possible different combinations of two digits.
@@ -258,7 +258,7 @@ GitHub repository: alu-higher_level_programming
 Directory: python-if_else_loops_functions
 File: 6-print_comb3.py
   
-0/6 pts
+6/6 pts
 8. islower
 mandatory
 Write a function that checks for lowercase character.
@@ -294,7 +294,7 @@ GitHub repository: alu-higher_level_programming
 Directory: python-if_else_loops_functions
 File: 7-islower.py
   
-0/17 pts
+17/17 pts
 7. islower
 mandatory
 Write a function that checks for lowercase character.
@@ -330,7 +330,7 @@ GitHub repository: alu-higher_level_programming
 Directory: python-if_else_loops_functions
 File: 7-islower.py
   
-0/17 pts
+17/17 pts
 9. To uppercase
 mandatory
 Write a function that prints a string in uppercase followed by a new line.
@@ -360,7 +360,7 @@ GitHub repository: alu-higher_level_programming
 Directory: python-if_else_loops_functions
 File: 8-uppercase.py
   
-0/17 pts
+17/17 pts
 10. There are only 3 colors, 10 digits, and 7 notes; it's what we do with them that's important
 mandatory
 Write a function that prints the last digit of a number.
@@ -388,7 +388,7 @@ GitHub repository: alu-higher_level_programming
 Directory: python-if_else_loops_functions
 File: 9-print_last_digit.py
   
-0/16 pts
+16/16 pts
 11. a + b
 mandatory
 Write a function that adds two integers and returns the result.
@@ -417,7 +417,7 @@ GitHub repository: alu-higher_level_programming
 Directory: python-if_else_loops_functions
 File: 10-add.py
   
-0/16 pts
+16/16 pts
 12. a ^ b
 mandatory
 Write a function that computes a to the power of b and return the value.
@@ -450,7 +450,7 @@ GitHub repository: alu-higher_level_programming
 Directory: python-if_else_loops_functions
 File: 11-pow.py
   
-0/15 pts
+15/15 pts
 13. Fizz Buzz
 mandatory
 Write a function that prints the numbers from 1 to 100 separated by a space.
