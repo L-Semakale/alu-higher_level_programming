@@ -12,6 +12,8 @@ Solutions are represented in the format [[r, c], [r, c], [r, c], [r, c]]
 where `r` and `c` represent the row and column, respectively, where a
 queen must be placed on the chessboard.
 """
+import sys
+
 
 def init_board(n):
     """Initialize an `n`x`n` sized chessboard with 0's."""
