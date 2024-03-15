@@ -1,102 +1,90 @@
 #!/usr/bin/python3
-"""Defines a class Square"""
+"""This module solves the nqueen bactracking problem"""
+import sys
 
 
-class Square:
-    """
-    Class that defines properties of square by: (based on 5-square.py).
-
-    Attributes:
-        size: size of a square (1 side).
-    """
-    def __init__(self, size=0, position=(0, 0)):
-        """Creates new instances of square.
-
-        Args:
-            __size (int): size of the square (1 side).
-            __position (tuple): position of the square.
+class Solution:
+    def solveNQueens(self, n):
+        """Find all solutions to the N-Queens problem.
+        Args: n (int) - The size of the chessboard (N).
+        Returns: list - A list of solutions, each as a nested list of
+                [row, column] positions for each queen.
         """
-        self.size = size
-        self.position = position
+        solutions = []
+        state = []
+        self.search(state, solutions, n)
+        return solutions
 
-    def area(self):
-        """Calculates the area of square.
-
-        Returns: the current square area.
+    def is_valid_state(self, state, n):
+        """Check if the current state is a valid solution.
+        Args: state (list) - A list representing the current state of
+                the chessboard.
+              n (int) - The size of the chessboard (N).
+        Returns: bool - True if the state is a valid solution, False otherwise.
         """
-        return self.__size ** 2
+        return len(state) == n
 
-    @property
-    def size(self):
-        """Returns the size of a square
+    def get_candidates(self, state, n):
+        """Get the valid candidate positions for the next queen placement.
+        Args: state (list) - A list representing the current state of the
+                chessboard.
+              n (int) - The size of the chessboard (N).
+        Returns: set - A set of column indices representing the valid
+                candidate positions.
         """
-        return self.__size
+        if not state:
+            return set(range(n))
 
-    @size.setter
-    def size(self, value):
-        """Property setter for size.
+        position = len(state)
+        candidates = set(range(n))
+        for row, col in enumerate(state):
+            candidates.discard(col)
+            dist = position - row
+            candidates.discard(col + dist)
+            candidates.discard(col - dist)
+        return candidates
 
-        Args:
-            value (int): size of a square (1 side).
-
-        Raises:
-            TypeError: size must be an integer.
-            ValueError: size must be >= 0.
+    def search(self, state, solutions, n):
+        """Recursively search for all valid solutions to the N-Queens problem.
+        Args: state (list) - A list representing the current state of the
+                chessboard.
+              solutions (list) - A list to store the valid solutions.
+              n (int) - The size of the chessboard (N).
         """
-        if not isinstance(value, int):
-            raise TypeError("size must be an integer")
-        if value < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = value
+        if self.is_valid_state(state, n):
+            state_string = self.state_to_nested_list(state, n)
+            solutions.append(state_string)
+            return
 
-    @property
-    def position(self):
-        """Returns the position of the square
+        for candidate in self.get_candidates(state, n):
+            state.append(candidate)
+            self.search(state, solutions, n)
+            state.pop()
+
+    def state_to_nested_list(self, state, n):
+        """Convert the state representation to a nested list.
+        Args: state (list) - A list representing the current state of the
+                chessboard.
+              n (int) - The size of the chessboard (N).
+        Returns: list - A nested list of [row, column] positions for each queen
         """
-        return self.__position
+        answer = []
+        for index, value in enumerate(state):
+            answer.append([index, value])
+        return answer
 
-    @position.setter
-    def position(self, value):
-        """Property setter for position.
-
-        Args:
-            value (tuple): position of the square.
-
-        Raises:
-            TypeError: position must be a tuple of 2 positive integers
-        """
-        if not isinstance(value, tuple):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if len(value) != 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if not isinstance(value[0], int) or not isinstance(value[1], int):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if value[0] < 0 or value[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
-
-    def my_print(self):
-        """prints in stdout the square with the character #
-        """
-
-        if self.__size == 0:
-            print()
-        else:
-            for j in range(self.__position[1]):
-                print()
-            for i in range(self.__size):
-                for k in range(self.__position[0]):
-                    print(" ",  end="")
-                print("#" * (self.__size))
-
-    def __str__(self):
-        """Prints square offsetting it by position with symbol #
-
-        Returns: The square.
-        """
-        if self.__size == 0:
-            return ''
-        new_lines = '\n' * self.position[1]
-        spaces = ' ' * self.position[0]
-        hashes = '#' * self.size
-        return new_lines + '\n'.join(spaces + hashes for e in range(self.size))
+arg = sys.argv
+try:
+    arg_1 = int(sys.argv[1])
+except (ValueError, TypeError):
+    print("N must be a number")
+except IndexError:
+    print("Usage: nqueens N")
+else:
+    if arg_1 < 4:
+        print("N must be at least 4")
+    else:
+        NQueen = Solution()
+        solution_list = NQueen.solveNQueens(int(sys.argv[1]))
+        for solution in solution_list:
+            print(solution)
