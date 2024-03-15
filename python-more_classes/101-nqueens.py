@@ -1,54 +1,62 @@
 #!/usr/bin/python3
-import sys
+"""
+nqueens backtracking program to print the coordinates of n queens
+on an nxn grid such that they are all in non-attacking positions
+"""
 
-def is_safe(board, row, col, n):
-    # Check if there is a queen in the same column
-    for i in range(row):
-        if board[i][col] == 1:
-            return False
-    
-    # Check upper diagonal on left side
-    for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
-        if board[i][j] == 1:
-            return False
-    
-    # Check upper diagonal on right side
-    for i, j in zip(range(row, -1, -1), range(col, n)):
-        if board[i][j] == 1:
-            return False
-    
-    return True
 
-def solve_nqueens_util(board, row, n, solutions):
-    if row == n:
-        solutions.append([[i, j] for i in range(n) for j in range(n) if board[i][j] == 1])
-        return
-    
-    for col in range(n):
-        if is_safe(board, row, col, n):
-            board[row][col] = 1
-            solve_nqueens_util(board, row + 1, n, solutions)
-            board[row][col] = 0
-
-def solve_nqueens(n):
-    if not n.isdigit():
-        print("N must be a number")
-        sys.exit(1)
-    n = int(n)
-    if n < 4:
-        print("N must be at least 4")
-        sys.exit(1)
-    
-    board = [[0] * n for _ in range(n)]
-    solutions = []
-    solve_nqueens_util(board, 0, n, solutions)
-    
-    for sol in solutions:
-        print(sol)
+from sys import argv
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
+    a = []
+    if len(argv) != 2:
         print("Usage: nqueens N")
-        sys.exit(1)
-    
-    solve_nqueens(sys.argv[1])
+        exit(1)
+    if argv[1].isdigit() is False:
+        print("N must be a number")
+        exit(1)
+    n = int(argv[1])
+    if n < 4:
+        print("N must be at least 4")
+        exit(1)
+
+    # initialize the answer list
+    for i in range(n):
+        a.append([i, None])
+
+    def already_exists(y):
+        """check that a queen does not already exist in that y value"""
+        for x in range(n):
+            if y == a[x][1]:
+                return True
+        return False
+
+    def reject(x, y):
+        """determines whether or not to reject the solution"""
+        if (already_exists(y)):
+            return False
+        i = 0
+        while(i < x):
+            if abs(a[i][1] - y) == abs(i - x):
+                return False
+            i += 1
+        return True
+
+    def clear_a(x):
+        """clears the answers from the point of failure on"""
+        for i in range(x, n):
+            a[i][1] = None
+
+    def nqueens(x):
+        """recursive backtracking function to find the solution"""
+        for y in range(n):
+            clear_a(x)
+            if reject(x, y):
+                a[x][1] = y
+                if (x == n - 1):  # accepts the solution
+                    print(a)
+                else:
+                    nqueens(x + 1)  # moves on to next x value to continue
+
+    # start the recursive process at x = 0
+    nqueens(0)
