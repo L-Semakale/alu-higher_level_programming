@@ -36,7 +36,6 @@ if _name_ == "_main_":
             else:
                 count += 1
 
-
             line = line.split()
 
             try:
@@ -57,4 +56,4 @@ if _name_ == "_main_":
 
     except KeyboardInterrupt:
         print_stats(size, status_codes)
-        raise 
+        raise
