@@ -20,7 +20,7 @@ def print_stats(size, status_codes):
         print("{}: {}".format(key, status_codes[key]))
 
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     import sys
 
     size = 0
@@ -54,6 +54,6 @@ if _name_ == "_main_":
 
         print_stats(size, status_codes)
 
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError):
         print_stats(size, status_codes)
-        raise
+
