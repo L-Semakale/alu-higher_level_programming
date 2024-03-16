@@ -5,10 +5,8 @@ and then saves them to a file named 'add_item.json'.
 """
 import sys
 
-save_to_json_file = 
-_import_('5-save_to_json_file').save_to_json_file
-load_from_json_file = 
-_import_('6-load_from_json_file').load_from_json_file
+save_to_json_file = _import_('5-save_to_json_file').save_to_json_file
+load_from_json_file = _import_('6-load_from_json_file').load_from_json_file
 
 filename = "add_item.json"
 
