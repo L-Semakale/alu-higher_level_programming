@@ -1,28 +1,30 @@
 #!/usr/bin/python3
 """
-A function that adds 2 integers.
-a and b must be first casted to integers if they are float
-Returns an integer: the addition of a and b
+
+This module is composed by a function that adds two numbers
+
 """
 
 
 def add_integer(a, b=98):
-    """
-    Returns the sum of a and b.
+    """ Function that adds two integer and/or float numbers
 
     Args:
-        a: int or float
-        b: int or float, default 98
+        a: first number
+        b: second number
 
     Returns:
-        int: the addition of a and b
+        The addition of the two given numbers
+
+    Raises:
+        TypeError: If a or b aren't integer and/or float numbers
+
     """
-    if type(a) not in [int, float] or a is None:
+
+    if not isinstance(a, int) and not isinstance(a, float):
         raise TypeError("a must be an integer")
-    if type(b) not in [int, float] or b is None:
+    if not isinstance(b, int) and not isinstance(b, float):
         raise TypeError("b must be an integer")
-    if type(a) is float:
-        a = int(a)
-    if type(b) is float:
-        b = int(b)
-    return a + b
+    a = int(a)
+    b = int(b)
+    return (a + b)
