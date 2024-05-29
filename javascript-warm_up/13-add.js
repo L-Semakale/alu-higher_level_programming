@@ -1,8 +1,8 @@
 #!/usr/bin/node
-function add(a, b) { // Adjusted indentation
-  return a + b;
+function add(a, b) { // Added space before parentheses
+    return a + b;
 }
 
 module.exports = {
-  add // Object shorthand
+    add: add
 };
